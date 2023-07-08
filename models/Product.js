@@ -20,6 +20,7 @@ const productSchema = Schema(
     discount: { type: Number, min: 0, max: 75, default: 0 },
     description: { type: String, default: "mô tả"},
     stock: { type: Number, min: 0, default: 0 },
+    sold: { type: Number, default: 0 },
     // Reference to Category
     categoryId: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
     // Reference to Supplier

@@ -9,19 +9,25 @@ const {
 const {
   getProductAll,
   getProductDetail,
+  getProductList,
+  getDiscount,
+  getallDiscount,
   createProduct,
-  deleteProduct,
-  updateProduct,
 } = require('./controller');
 
-router.route('/')
+router.route('/getall')
   .get(getProductAll)
-  .post(validateSchema(createProductSchema), createProduct)
+  // .post(validateSchema(createProductSchema), createProduct);
 
-router.route('/:id')
-  .get(validateSchema(getProductSchema), getProductDetail)
-  .patch(validateSchema(createProductSchema), updateProduct)
-  .delete(validateSchema(getProductSchema), deleteProduct)
+// router.route('/:id')
+//   .get(validateSchema(getProductSchema), getProductDetail);
+
+
+
+router.get("/getlist", getProductList);
+
+router.get('/flashsale', getDiscount);
+router.get('/allflashsale',getallDiscount);
 
 // GET ALL
 // router.get('/', getProductAll);
